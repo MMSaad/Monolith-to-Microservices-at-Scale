@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - 10
+
+  script:
+    cd udacity-c3-restapi-feed
+    npm i
+    npm run dev
