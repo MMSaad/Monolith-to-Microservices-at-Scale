@@ -7,6 +7,7 @@ script:
 - npm install forever -g
 - npm run-script build
 - forever start --minUptime 100000 --spinSleepTime 100000 ./www/server.js
+- sleep 5
 - curl http://localhost:8080
 - forever stop ./www/server.js
 env:
