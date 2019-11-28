@@ -10,6 +10,7 @@ script:
 - sleep 5
 - curl http://localhost:8080
 - forever stop ./www/server.js
+- cd ..
 - cd udacity-c3-restapi-user
 - npm i
 - npm install forever -g
