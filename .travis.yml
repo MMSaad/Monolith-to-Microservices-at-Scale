@@ -4,7 +4,11 @@ node_js:
 script:
 - cd udacity-c3-restapi-feed
 - npm i
-- npm run dev
+- npm install forever -g
+- npm run-script build
+- forever start --minUptime 100000 --spinSleepTime 100000 ./www/server.js
+- curl http://localhost:8080
+- forever stop ./www/server.js
 env:
   global:
   - secure: mSHcy6AA3Lm9GIiWmB8EFpmaM8spvBWGgNCwFvp5OnMLb7qrQFAFrr+s/U2h/6seY94Jo0ipYguJO/Sa4gcMYBvUmHWtiS5M89rhEzTJJy8mV93Qh31ZxseyWtV+nsicorywbgjPiVqBQzKPa3SgDGRKrQBal5jAKKBiaaENOeIiQNrw20G0Ai98IuhgZkcA1E4qPWHurd6inudyviXb6jYDo+Qp7O02HHiKChnOExB3NIr5ZQ3h85wsg1bhpG9kb316te8G18dRhQdgOYwK0yYTmNymSdb2sVS4FaCuDhj6OjCaWgo+WK8EKDhuJSeJT2ahRijUtNY2F77GwYWjQclE5bzI80VQLlqzDso0CH8+fXTj97gR9Yrrvi9rzvbQfvBQroUYLyVn4ICNHn6lpgcxvb0cNb6HJ0zU/QHkwbbc2hQ4LZuIHo3kp33Fp1OxObUk82xPmS1+6Dz4+ixeECAw7oNWzF4lB8ndYvXC42SunX6+bLGNrecsfrENQ4mHEEzrKwjGlsM5Kq9PBZ2BqTTvsFF1JdW7lz4kNoOVgTYYZhS5HoAD1+Rh/swg/Hf/xF+ZA6lZVUyBZOqx9v5YxBBeXKMSQjNyc95oDzCknnNxDflqD5dd6PSgFrIQIPnGBLKkDmGg9+EKJieqAID19GhfnSPTuZXcKs/jFeF1fJE=
