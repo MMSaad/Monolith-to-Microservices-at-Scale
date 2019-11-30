@@ -15,7 +15,7 @@ install:
 - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 
 after_script:
-- docker login -u username -p password
+- docker login -u username -p password docker.io
 - docker image push mmsaad85/udacity-c3-deployment
 - docker image push mmsaad85/udacity-c3-restapi-feed
 - docker image push mmsaad85/udacity-c3-restapi-user
