@@ -11,5 +11,6 @@ before_install:
   -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 - sudo chmod +x /usr/local/bin/docker-compose
 install:
-
+- docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 - docker login -u username -p password
+- docker-compose push
