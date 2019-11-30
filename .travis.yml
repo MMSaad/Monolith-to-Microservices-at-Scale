@@ -16,7 +16,7 @@ install:
 
 after_script:
 - docker login -u username -p password docker.io
-- docker image push mmsaad85/udacity-c3-deployment
+- docker push mmsaad85/udacity-c3-deployment
 - docker image push mmsaad85/udacity-c3-restapi-feed
 - docker image push mmsaad85/udacity-c3-restapi-user
 - docker image push mmsaad85/udacity-c3-frontend
