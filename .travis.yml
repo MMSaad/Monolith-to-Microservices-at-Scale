@@ -13,4 +13,7 @@ before_install:
 install:
 - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 - docker login -u username -p password
-- docker-compose push
+- docker image push mmsaad85/udacity-c3-deployment
+- docker image push mmsaad85/udacity-c3-restapi-feed
+- docker image push mmsaad85/udacity-c3-restapi-user
+- docker image push mmsaad85/udacity-c3-frontend
