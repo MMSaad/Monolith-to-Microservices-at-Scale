@@ -1,13 +1,15 @@
 language: minimal
-
 service: docker
-
 env:
+  matrix:
   - DOCKER_COMPOSE_VERSION=1.23.2
-
+  global:
+  - secure: qS+i/IcJXbzy/6Nj4SwBPd1un23EFuUg0g//MLpOcFdMutACaEWnoU3vV9PE6Bynz+Kzd4VWDsHTYfpQsRF2g/AZWZ4Ondb/e8XvWLq5MaGxOpiFFPrIKjtPUQsO/I51oJlPulrvI5m+zWeI08owJyscvuH+0F7IL7bcRdvXjxa5srxyyy5LF/nS2bW+yPp6hzmO0k8BbfOJbzEzO2ypzt2h39LpWKTO3MFepwB7B+6FmcldY3ULYyH9yna23npuaOzNSeXRXP71G/t60RW9D5x01JePPnZldqtBov/NXuxR84hqbEVkckw4sjJYGEcj8yIX9aKjP04Oi91gp2c+3Ai14WehX0nmooFc9UKOw96pCT4TxECPxsi6f97Ge1ybviRkwatbRWUWADgH2Y651cahvYhz5heHjMreQLBvPnS3+2XLymVzBSeLepHSYiVQKvbLme9Do4E+TAxrChnPaeJmrUpSVchSj4MnZuM9heZSNNQQxUOqkSFjZPdDEzuQaPNUq6BIDcEcuAb25DjCC1VNbGufhkgb/DyDjHCvQgz8Q8AKjGOoDOuDs0iQ+GHGJhu2hQX9zVOZpkGZ3/acWFsRc0siGdRGE6xVJCoegiWFqL7aGXRHmxBvzFm8Rs0PE9iGvCU6m3733TIOQqjV0sJovr8sGKVPIFH221ZKoOo=
+  - secure: pgJ64OO3zwxrs6SNnfbGEUdQyD6i8Ct31k/RujUdECyrCMu0ZJ6F4O8ueLFTt86cMdhRCx8mGjI3/JHkZKkfwKpAd4nvIAUPQjkgwgm7CVYkbYrI+XhgcMLmiTcel5aaV15+UtLqQd8Cu7aiX2GI7OrhahLam8MOrLhNVXlKvYtdXj5BW1mudPlPOSdZlDZ6BNyFlZ4+pItXSrtkuJ62wxZCC1WlKaJaOQqJL6Y2J2IHJ6A/XUafOYi8plZLYAqU0wZxlussgy8yH+8436cPRn7jNe8I5UjJtu2QNq2Pjl1E1rLmI+Os57jy48pwwwmxxsRjSMoUMwmqfRd2Jv4Sy+HWm4WDlNkYfjtH7I2Knr/yB3sPU19dlQuruP03L7gktAK5YTS9WJMjJ++n7mWniPZp+4RxihLmVxX9H/rgIsfz2fKRYi4HBOCrtt47uWc8e6SQdhUhxNg6K2SRloPMtNz2sWqOYFgmcclioMBm1c334kwIR91Q/e1uJLCul9rQYOal4VmG9T/nTjIRtX/RGXLaD9V8Dz+DE3tJnV02YiEp3K/dMPaQdWsZK//UzByMy01M+js1dBuDUmn3tWdHve4/QBYR/VdD8xjfbGmFzEvzw2FVDz8wxbDk9zBF35lpZc30ermmRqIs8zwzU65Mdb6GP+gm9H6aTG2Jx5uhU6I=
 before_install:
-  - sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  - sudo chmod +x /usr/local/bin/docker-compose
-  
-install: 
-  - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
+- sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname
+  -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+- sudo chmod +x /usr/local/bin/docker-compose
+install:
+- docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
+- docker login -u docker-username -p docker-password
