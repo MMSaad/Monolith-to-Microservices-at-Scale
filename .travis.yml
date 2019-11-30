@@ -12,11 +12,8 @@ before_install:
 - sudo chmod +x /usr/local/bin/docker-compose
 
 install:
-- docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
+
 
 after_script:
-- docker login -u username -p password docker.io
-- docker push mmsaad85/udacity-c3-deployment
-- docker image push mmsaad85/udacity-c3-restapi-feed
-- docker image push mmsaad85/udacity-c3-restapi-user
-- docker image push mmsaad85/udacity-c3-frontend
+- docker login -u username -p --password-stdin docker.io
+- docker login
